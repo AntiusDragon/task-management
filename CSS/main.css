@@ -1,0 +1,10 @@
+body,
+body * {
+   box-sizing: border-box; /*width skaicija ne vidu, o isore*/
+   margin: 0; /*visi elementai neatsistumdineja*/
+   padding: 0; /*kad nebutu storas*/
+ }
+
+ body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ }
