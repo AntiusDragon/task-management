@@ -5,13 +5,13 @@ export class Todo {
         this.DOM = null;
         this.columnsDOM = [];
         this.tasks = [];
-        this.lastUsedTaskId = 0;
+        this.lastUsedtaskId = 0;
 
         this.init();
     }
 
     init() {
-        this.updateDOMelement();
+        const err = this.updateDOMelement();
         if (typeof err === 'string') {
             return console.error(err);
         }
@@ -21,14 +21,13 @@ export class Todo {
 
     updateDOMelement() {
         if (typeof this.selector !== 'string' || this.selector === '') {
-            throw new Error('Netinkamas selektorius');
+            return 'Netinkamas selektorius';
         }
+
         this.DOM = document.querySelector(this.selector);
     }
 
     render() {
-        // console.log('piesiu turini...');
-        // console.log(this.columns);
         let HTML = '';
 
         for (const column of this.columns) {
@@ -44,7 +43,6 @@ export class Todo {
         this.DOM.style.gridTemplateColumns = `repeat(${this.columns.length}, 1fr)`;
 
         this.columnsDOM = this.DOM.querySelectorAll('.task-list');
-        console.log(this.columnsDOM);
     }
 
     addTask(task) {
@@ -52,37 +50,33 @@ export class Todo {
             ...task,
             isDeleted: false,
         });
-        const taskID = ++this.lastUsedTaskId;
+        const taskID = ++this.lastUsedtaskId;
         let tagsHTML = '';
 
         for (const tag of task.tags) {
             tagsHTML += `<div class="tag" style="color: ${tag.color};">${tag.text}</div>`;
         }
-        // // console.log(task);
-        const HTML = `
-        <li id="task_${taskID} class="task-card">
-            <div class="task-actions">
-                <button class="fa fa-trash"></button>
-            </div>
-            <div class="task-title">${task.title}</div>
-            <div class="task-desc">${task.desc}</div>
-            <div class="task-tag">${tagsHTML}</div>
-            <div class="task-deadline">${task.deadline}</div>
-         </li>`;
-        // console.log(HTML);
 
-        // Neprisimena kas buvo istrinta
+        const HTML = `
+            <li id="task_${taskID}" class="task-card">
+                <div class="task-actions">
+                    <button class="fa fa-trash"></button>
+                </div>
+                <div class="task-title">${task.title}</div>
+                <div class="task-desc">${task.desc}</div>
+                <div class="task-tags">${tagsHTML}</div>
+                <div class="task-deadline">${task.deadline}</div>
+            </li>`;
+
         // this.columnsDOM[task.columnIndex].innerHTML += HTML;
-        // Prisimena kas buvo istrinta
-        this.columnsDOM[task.columnIndex].insertAdjacentHTML('beforeend', HTML) ;
+        this.columnsDOM[task.columnIndex].insertAdjacentHTML('beforeend', HTML);
 
         const taskDOM = document.getElementById(`task_${taskID}`);
         const deleteButtonDOM = taskDOM.querySelector('.fa-trash');
-        console.log(deleteButtonDOM);
-        deleteButtonDOM,addEventListener('click', () => {
+
+        deleteButtonDOM.addEventListener('click', () => {
             this.tasks[taskID - 1].isDeleted = true;
             taskDOM.remove();
-            // console.log('delete:', taskID);
         });
     }
 }
