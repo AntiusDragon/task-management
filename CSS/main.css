@@ -1,65 +1,61 @@
 body,
 body * {
-   box-sizing: border-box; /*width skaicija ne vidu, o isore*/
-   margin: 0; /*visi elementai neatsistumdineja*/
-   padding: 0; /*kad nebutu storas*/
- }
-
- body {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    background-color: #eeeef7;
- }
-
- .main-content {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 40px;
-   min-height: calc(100vh - 9rem);
-   padding: 3rem 2rem 0 2rem;
- }
- .about {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   width: 100%;
- }
- 
- .about > div{
-   width: 800px;
-   font-size: 30px;
- }
-.main-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  line-height: 1em;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
 }
 
- @media (max-width: 900px) {
-   .about > div{
-      width: 600px;
-      font-size: 25px;
-    }
- }
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS',
+        sans-serif;
+    background-color: #eeeef7;
+}
 
- @media (max-width: 700px) {
-   .about > div{
-      width: 400px;
-      font-size: 20px;
-    }
- }
- @media (max-width: 500px) {
-   .about > div{
-      width: 100%;
-      font-size: 18px;
-    }
- }
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    min-height: calc(100vh - 9rem);
+    padding: 3rem 2rem 0 2rem;
+}
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+.about > div {
+    width: 800px;
+    font-size: 30px;
+}
 
- @media print {
-   .about {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-   }
- }
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    line-height: 1em;
+}
+
+@media (max-width: 900px) {
+    .about > div {
+        width: 600px;
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 700px) {
+    .about > div {
+        width: 400px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+    .about > div {
+        width: 100%;
+        font-size: 18px;
+    }
+}

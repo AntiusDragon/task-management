@@ -1,8 +1,9 @@
 body,
 body * {
-   box-sizing: border-box; /*width skaicija ne vidu, o isore*/
-   margin: 0; /*visi elementai neatsistumdineja*/
-   padding: 0; /*kad nebutu storas*/
+  margin: 0; /*visi elementai neatsistumdineja*/
+  padding: 0; /*kad nebutu storas*/
+  vertical-align: top;
+  box-sizing: border-box; /*width skaicija ne vidu, o isore*/
  }
 
  body {
@@ -10,48 +11,50 @@ body * {
  }
  
  .main-header {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px 40px;
-    box-shadow: 0 4px 8px #0003;
-    position: sticky;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: yellow;
-    z-index: 1;
-}
-.main-header > .logo{
-}
-.main-header > .btn{
-}
+     display: flex;
+     justify-content: space-between;
+     padding: 20px 40px;
+     box-shadow: 0 4px 8px #0003;
+     position: sticky;
+     top: 0;
+     left: 0;
+     right: 0;
+     background-color: #fff;
+     z-index: 1;
+ }
+ .main-header > .logo {
+ }
+ .main-header > .btn {
+ }
+ 
  .main-content {
-    padding: 80px;
-}
-.article-list {
-    display: flex;
-    flex-direction: column;
-    gap: 80px;
-    border:  1px solid red;
+     padding: 80px;
+ }
+ 
+ .article-list {
+     display: flex;
+     flex-direction: column;
+     gap: 80px;
+     border: 1px solid red;
  }
  article {
-   display: flex;
-   flex-direction: column;
-   gap: 20px;
-   border:  1px solid yellow;
+     display: flex;
+     flex-direction: column;
+     gap: 20px;
+     border: 1px solid yellow;
  }
  article > header {
-    border:  1px solid #eee;
-   padding: 10px;
-   font-size: 20px;
-   position: sticky;
-   top: 60px;
+     background-color: #eee;
+     padding: 10px;
+     font-size: 30px;
+     position: sticky;
+     top: 59px;
  }
  article > div {
-   padding: 10px;
-   font-size: 30px;
+     padding: 10px;
+     font-size: 20px;
  }
  article > footer {
-   padding: 10px;
-   font-size: 20px;
+     padding: 10px;
+     font-size: 20px;
  }

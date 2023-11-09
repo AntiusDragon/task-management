@@ -45,19 +45,14 @@ export class Todo {
         this.columnsDOM = this.DOM.querySelectorAll('.task-list');
     }
 
-    addTask(task) {
-        this.tasks.push({
-            ...task,
-            isDeleted: false,
-        });
-        const taskID = ++this.lastUsedtaskId;
+    taskCardHTML(taskID, task) {
         let tagsHTML = '';
 
         for (const tag of task.tags) {
             tagsHTML += `<div class="tag" style="color: ${tag.color};">${tag.text}</div>`;
         }
 
-        const HTML = `
+        return `
             <li id="task_${taskID}" class="task-card">
                 <div class="task-actions">
                     <button class="fa fa-trash"></button>
@@ -67,9 +62,16 @@ export class Todo {
                 <div class="task-tags">${tagsHTML}</div>
                 <div class="task-deadline">${task.deadline}</div>
             </li>`;
+    }
 
+    addTask(task) {
+        this.tasks.push({
+            ...task,
+            isDeleted: false,
+        });
+        const taskID = ++this.lastUsedtaskId;
         // this.columnsDOM[task.columnIndex].innerHTML += HTML;
-        this.columnsDOM[task.columnIndex].insertAdjacentHTML('beforeend', HTML);
+        this.columnsDOM[task.columnIndex].insertAdjacentHTML('beforeend', this.taskCardHTML(taskID, task));
 
         const taskDOM = document.getElementById(`task_${taskID}`);
         const deleteButtonDOM = taskDOM.querySelector('.fa-trash');
