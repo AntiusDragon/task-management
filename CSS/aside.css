@@ -48,7 +48,9 @@
 .aside .fa-times:hover {
     color: #333;
 }
-.aside .fa-content {
+.aside .aside-content {
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
 }
 
 @media (max-width: 30rem) {

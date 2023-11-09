@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="./CSS/header.css">
     <link rel="stylesheet" href="./CSS/todo.css">
     <link rel="stylesheet" href="./CSS/aside.css">
+    <link rel="stylesheet" href="./CSS/form.css">
     <!-- <link rel="stylesheet" href="./CSS/header-xmas.css"> -->
     <link rel="stylesheet" href="./CSS/font-awesome.min.css">
 </head>
@@ -34,7 +35,29 @@
                     <h2 class="aside-title">Add task</h2>
                     <button type="button" class="fa fa-times"></button>
                 </header>
-                <div class="aside-content">a</div>
+                <div class="aside-content">
+                    <form id="task_form" class="form">
+                        <div class="form-row">
+                            <label class="form-label" for="title">Title</label>
+                            <input id="title" class="form-input" type="text" name="title" required>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label" for="desc">Description</label>
+                            <textarea id="desc" class="textarea" name="description"></textarea>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label" for="deadline">Deadline</label>
+                            <input id="deadline" class="form-input" type="text" name="deadline">
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label" for="tags">Tags</label>
+                            <input id="tags" class="form-input" type="text" name="tags">
+                        </div>
+                        <div class="form-row">
+                            <button class="form-btn" type="submit">Create task</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </aside>
     </main>
